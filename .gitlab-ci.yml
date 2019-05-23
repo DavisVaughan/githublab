@@ -1,0 +1,11 @@
+image: rocker/r-base
+
+stages:
+  - build
+
+building:
+  stage: build
+  script:
+    - R -e "install.packages('devtools')"
+    - R -e "devtools::install_deps(dependencies = TRUE)"
+    - R -e "devtools::check()"
