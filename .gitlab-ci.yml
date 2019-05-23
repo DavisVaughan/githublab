@@ -1,4 +1,4 @@
-image: rocker/r-base
+image: rocker/tidyverse
 
 stages:
   - build
@@ -6,6 +6,5 @@ stages:
 building:
   stage: build
   script:
-    - R -e "install.packages('devtools')"
     - R -e "devtools::install_deps(dependencies = TRUE)"
     - R -e "devtools::check()"
